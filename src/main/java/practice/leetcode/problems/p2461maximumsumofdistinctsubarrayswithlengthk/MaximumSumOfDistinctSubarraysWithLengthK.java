@@ -15,20 +15,16 @@ public class MaximumSumOfDistinctSubarraysWithLengthK {
             windowSum += currentNumber;
             window.put(currentNumber, window.getOrDefault(currentNumber, 0) + 1);
 
-            while (window.get(currentNumber) > 1) {
+            if (right - left + 1 > k) {
                 int leftNumber = nums[left];
-                window.put(leftNumber, window.getOrDefault(leftNumber, 0) - 1);
-                if (window.get(leftNumber) == 0) window.remove(leftNumber);
                 windowSum -= leftNumber;
+                window.put(leftNumber, window.get(leftNumber) - 1);
+                if (window.get(leftNumber) == 0) window.remove(leftNumber);
                 left++;
             }
 
-            if (window.size() == k) {
+            if (right - left + 1 == k && window.size() == k) {
                 result = Math.max(result, windowSum);
-                int leftNumber = nums[left];
-                window.remove(leftNumber);
-                windowSum -= leftNumber;
-                left++;
             }
         }
         return result;
