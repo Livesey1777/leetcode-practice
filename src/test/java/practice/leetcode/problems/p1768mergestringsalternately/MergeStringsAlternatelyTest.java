@@ -9,16 +9,19 @@ public class MergeStringsAlternatelyTest {
 
     @Test
     void example1() {
-        assertEquals("apbqcr", solution.mergeAlternately("abc", "pqr"));
+        assertEquals("apbqcr", solution.mergeAlternately1("abc", "pqr"));
+        assertEquals("apbqcr", solution.mergeAlternately2("abc", "pqr"));
     }
 
     @Test
     void example2() {
-        assertEquals("apbqrs", solution.mergeAlternately("ab", "pqrs"));
+        assertEquals("apbqrs", solution.mergeAlternately1("ab", "pqrs"));
+        assertEquals("apbqrs", solution.mergeAlternately2("ab", "pqrs"));
     }
 
     @Test
     void example3() {
-        assertEquals("apbqcd", solution.mergeAlternately("abcd", "pq"));
+        assertEquals("apbqcd", solution.mergeAlternately1("abcd", "pq"));
+        assertEquals("apbqcd", solution.mergeAlternately2("abcd", "pq"));
     }
 }

@@ -1,7 +1,7 @@
 package practice.leetcode.problems.p1768mergestringsalternately;
 
 public class MergeStringsAlternately {
-    public String mergeAlternately(String word1, String word2) {
+    public String mergeAlternately1(String word1, String word2) {
         StringBuilder result = new StringBuilder();
         int len1 = word1.length();
         int len2 = word2.length();
@@ -14,6 +14,26 @@ public class MergeStringsAlternately {
         } else {
             result.append(word2.substring(minLen));
         }
+        return result.toString();
+    }
+
+    public String mergeAlternately2(String word1, String word2) {
+        StringBuilder result = new StringBuilder();
+        int len1 = word1.length();
+        int len2 = word2.length();
+        int i = 0, j = 0;
+
+        while (i < len1 || j < len2) {
+            if (i < len1) {
+                result.append(word1.charAt(i));
+                i++;
+            }
+            if (j < len2) {
+                result.append(word2.charAt(j));
+                j++;
+            }
+        }
+
         return result.toString();
     }
 }
