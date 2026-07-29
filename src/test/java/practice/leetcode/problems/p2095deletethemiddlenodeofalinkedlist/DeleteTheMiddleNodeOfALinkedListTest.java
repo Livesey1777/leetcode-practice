@@ -3,34 +3,15 @@ package practice.leetcode.problems.p2095deletethemiddlenodeofalinkedlist;
 import org.junit.jupiter.api.Test;
 import practice.leetcode.common.ListNode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static practice.leetcode.common.ListNodeUtils.listFromArray;
+import static practice.leetcode.common.ListNodeUtils.listToArray;
 
 public class DeleteTheMiddleNodeOfALinkedListTest {
     private DeleteTheMiddleNodeOfALinkedList solution = new DeleteTheMiddleNodeOfALinkedList();
-
-    private ListNode listFromArray(int[] arr) {
-        if (arr == null || arr.length == 0) return null;
-        ListNode head = new ListNode(arr[0]);
-        ListNode current = head;
-        for (int i = 1; i < arr.length; i++) {
-            current.next = new ListNode(arr[i]);
-            current = current.next;
-        }
-        return head;
-    }
-
-    private List<Integer> listToArray(ListNode head) {
-        List<Integer> result = new ArrayList<>();
-        while (head != null) {
-            result.add(head.val);
-            head = head.next;
-        }
-        return result;
-    }
 
     @Test
     void example1() {
