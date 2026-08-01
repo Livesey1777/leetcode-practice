@@ -8,13 +8,21 @@ public class MaximumTwinSumOfALinkedList {
         ListNode middle = findMiddle(head);
         ListNode secondHalf = middle.next;
         middle.next = null;
+
         ListNode reversedSecondHalf = reverse(secondHalf);
+        ListNode reversedHead = reversedSecondHalf;
+
         int maxSum = 0;
-        while (reversedSecondHalf != null) {
-            maxSum = Math.max(maxSum, (head.val + reversedSecondHalf.val));
-            head = head.next;
-            reversedSecondHalf = reversedSecondHalf.next;
+        ListNode curr1 = head;
+        ListNode curr2 = reversedSecondHalf;
+        while (curr2 != null) {
+            maxSum = Math.max(maxSum, curr1.val + curr2.val);
+            curr1 = curr1.next;
+            curr2 = curr2.next;
         }
+
+        // Восстанавливаем список
+        middle.next = reverse(reversedHead);
         return maxSum;
     }
 
