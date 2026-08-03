@@ -21,14 +21,13 @@ public class MaximumTwinSumOfALinkedList {
             curr2 = curr2.next;
         }
 
-        // Восстанавливаем список
         middle.next = reverse(reversedHead);
         return maxSum;
     }
 
     private ListNode findMiddle(ListNode head) {
         ListNode slow = head;
-        ListNode fast = head.next; // fast на один шаг вперёд
+        ListNode fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
