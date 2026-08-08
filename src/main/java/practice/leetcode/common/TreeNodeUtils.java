@@ -25,4 +25,11 @@ public class TreeNodeUtils {
         }
         return root;
     }
+
+    public static TreeNode findNode(TreeNode root, int val) {
+        if (root == null) return null;
+        if (root.val == val) return root;
+        TreeNode left = findNode(root.left, val);
+        return left != null ? left : findNode(root.right, val);
+    }
 }
