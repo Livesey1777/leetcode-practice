@@ -32,4 +32,12 @@ public class TreeNodeUtils {
         TreeNode left = findNode(root.left, val);
         return left != null ? left : findNode(root.right, val);
     }
+
+    public static boolean treeEquals(TreeNode a, TreeNode b) {
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
+        return a.val == b.val
+                && treeEquals(a.left, b.left)
+                && treeEquals(a.right, b.right);
+    }
 }
