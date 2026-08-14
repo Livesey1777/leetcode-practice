@@ -13,9 +13,9 @@ public class SearchInABinarySearchTreeTest {
     @Test
     void example1() {
         TreeNode root = buildTree(new Integer[]{4,2,7,1,3});
-        TreeNode expected = buildTree(new Integer[]{2,1,3}); // или просто узел со значением 2
+        TreeNode expected = buildTree(new Integer[]{2,1,3});
         TreeNode result = solution.searchBST(root, 2);
-        // Сравниваем деревья, например, через обход в уровень
+
         assertTrue(treeEquals(expected, result));
     }
 

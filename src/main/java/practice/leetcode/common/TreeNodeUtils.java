@@ -1,6 +1,8 @@
 package practice.leetcode.common;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeNodeUtils {
@@ -39,5 +41,28 @@ public class TreeNodeUtils {
         return a.val == b.val
                 && treeEquals(a.left, b.left)
                 && treeEquals(a.right, b.right);
+    }
+
+    public static boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    public static boolean isValidBST(TreeNode node, long min, long max) {
+        if (node == null) return true;
+        if (node.val <= min || node.val >= max) return false;
+        return isValidBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
+    }
+
+    public static List<Integer> collectValues(TreeNode root) {
+        List<Integer> values = new ArrayList<>();
+        collectInOrder(root, values);
+        return values;
+    }
+
+    public static void collectInOrder(TreeNode node, List<Integer> values) {
+        if (node == null) return;
+        collectInOrder(node.left, values);
+        values.add(node.val);
+        collectInOrder(node.right, values);
     }
 }
