@@ -11,10 +11,6 @@ public class Trie {
 
     private final Node root = new Node();
 
-    public Trie() {
-
-    }
-
     public void insert(String word) {
         Node curr = root;
         for (char c : word.toCharArray()) {
